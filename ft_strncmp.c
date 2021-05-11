@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 16:54:38 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/11 17:52:22 by youjeon          ###   ########.fr       */
+/*   Created: 2021/05/11 19:08:42 by youjeon           #+#    #+#             */
+/*   Updated: 2021/05/11 19:17:33 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t len)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	total_len;
-
-	total_len = 0;
-	while (*dest && total_len < len)
+	while (n > 0)
 	{
-		dest++;
-		total_len++;
+		if (s1 == s2)
+		{
+			s1++;
+			s2++;
+			n--;
+		}
+		else
+		{
+			return (s1 - s2);
+		}
 	}
-	while (*src && total_len < len - 1)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-		total_len++;
-	}
-	*dest = '\0';
-	while (*src)
-	{
-		src++;
-		total_len++;
-	}
-	return (total_len);
+	return (0);
 }

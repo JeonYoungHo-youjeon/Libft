@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 13:27:45 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/10 13:52:46 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/11 11:32:40 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	{
 		*ptr_dest = *ptr_src;
 		if (*ptr_dest = (unsigned char)c)
-		{
 			return (ptr_dest++);
-		}
 		ptr_dest++;
 		ptr_src++;
 		i++;

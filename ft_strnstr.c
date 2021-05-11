@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 16:54:38 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/11 17:52:22 by youjeon          ###   ########.fr       */
+/*   Created: 2021/05/11 17:58:08 by youjeon           #+#    #+#             */
+/*   Updated: 2021/05/11 18:55:16 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t	total_len;
+	char	*ptr_s1;
+	size_t	i;
 
-	total_len = 0;
-	while (*dest && total_len < len)
+	ptr_s1 = s1;
+	i = 0;
+	if (*s2 == NULL)
+		return (NULL);
+	while (i < n)
 	{
-		dest++;
-		total_len++;
+		if (ft_strncmp(s1[i], s2, ft_strlen(s2)) == 0)
+		{
+			return (ptr_s1);
+		}
+		ptr_s1++;
+		i++;
 	}
-	while (*src && total_len < len - 1)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-		total_len++;
-	}
-	*dest = '\0';
-	while (*src)
-	{
-		src++;
-		total_len++;
-	}
-	return (total_len);
+	return (NULL);
 }
