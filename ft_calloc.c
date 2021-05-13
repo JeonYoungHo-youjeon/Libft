@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 17:58:08 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/13 18:36:27 by youjeon          ###   ########.fr       */
+/*   Created: 2021/05/12 13:45:39 by youjeon           #+#    #+#             */
+/*   Updated: 2021/05/13 18:08:50 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+void	*ft_calloc(size_t n, size_t size)
 {
-	char	*ptr_s1;
-	size_t	i;
+	char	*new_mem;
 
-	ptr_s1 = (char*)s1;
-	i = 0;
-	if (*s2 == '\0')
+	if (!(new_mem = malloc(size * n)))
 		return (NULL);
-	while (i < n)
-	{
-		if (ft_strncmp(&s1[i], s2, ft_strlen(s2)) == 0)
-		{
-			return (ptr_s1);
-		}
-		ptr_s1++;
-		i++;
-	}
-	return (NULL);
+	ft_bzero(new_mem, n * size);
+	return (new_mem);
 }

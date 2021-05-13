@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 17:58:08 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/13 18:36:27 by youjeon          ###   ########.fr       */
+/*   Created: 2021/05/12 13:23:12 by youjeon           #+#    #+#             */
+/*   Updated: 2021/05/13 18:13:39 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+int	ft_isprint(int c)
 {
-	char	*ptr_s1;
-	size_t	i;
-
-	ptr_s1 = (char*)s1;
-	i = 0;
-	if (*s2 == '\0')
-		return (NULL);
-	while (i < n)
+	if (c >= 40 && c <= 176)
 	{
-		if (ft_strncmp(&s1[i], s2, ft_strlen(s2)) == 0)
-		{
-			return (ptr_s1);
-		}
-		ptr_s1++;
-		i++;
+		return (1);
 	}
-	return (NULL);
+	else
+	{
+		return (0);
+	}
 }

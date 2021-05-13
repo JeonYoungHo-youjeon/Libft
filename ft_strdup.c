@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 17:58:08 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/13 18:36:27 by youjeon          ###   ########.fr       */
+/*   Created: 2021/05/13 14:40:22 by youjeon           #+#    #+#             */
+/*   Updated: 2021/05/13 14:46:50 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strdup(const char *s)
 {
-	char	*ptr_s1;
-	size_t	i;
+	char	*new_mem;
+	int		size;
 
-	ptr_s1 = (char*)s1;
-	i = 0;
-	if (*s2 == '\0')
+	size = ft_strlen(s);
+	if (!(new_mem = malloc(size)))
 		return (NULL);
-	while (i < n)
-	{
-		if (ft_strncmp(&s1[i], s2, ft_strlen(s2)) == 0)
-		{
-			return (ptr_s1);
-		}
-		ptr_s1++;
-		i++;
-	}
-	return (NULL);
+	ft_strlcpy(new_mem, s, size);
+	return (new_mem);
 }

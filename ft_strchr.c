@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:36:59 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/10 17:55:41 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/13 18:30:21 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strchr(const char *str, int c)
 	char	*ptr_str;
 	char	to_find;
 
-	ptr_str = str;
+	ptr_str = (char*)str;
 	to_find = (char)c;
 	while (*ptr_str)
 	{
