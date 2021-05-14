@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 14:40:22 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/13 14:46:50 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/14 23:03:55 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,17 @@ char	*ft_strdup(const char *s)
 {
 	char	*new_mem;
 	int		size;
+	int		i;
 
 	size = ft_strlen(s);
-	if (!(new_mem = malloc(size)))
+	i = 0;
+	if (!(new_mem = malloc(size + 1)))
 		return (NULL);
-	ft_strlcpy(new_mem, s, size);
+	while (s[i])
+	{
+		new_mem[i] = s[i];
+		i++;
+	}
+	new_mem[i] = '\0';
 	return (new_mem);
 }

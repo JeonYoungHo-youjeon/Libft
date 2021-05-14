@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:36:59 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/13 18:30:21 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/14 13:45:24 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ char	*ft_strchr(const char *str, int c)
 		else
 			ptr_str++;
 	}
+	if (to_find == '\0')
+		return (ptr_str);
 	return (NULL);
 }
