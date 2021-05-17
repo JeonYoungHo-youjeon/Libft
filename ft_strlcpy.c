@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 16:25:59 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/14 23:02:26 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/17 19:04:00 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,17 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t len)
 	size_t	i;
 
 	if (!dst || !src)
+	{
 		return (0);
+	}
 	src_len = 0;
 	i = 0;
 	while (src[src_len])
 		src_len++;
 	if (len == 0)
+	{
 		return (src_len);
+	}
 	while (i < len - 1 && *src)
 	{
 		*dst = *src;

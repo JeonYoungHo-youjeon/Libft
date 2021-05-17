@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 19:08:42 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/17 15:42:10 by youjeon          ###   ########.fr       */
+/*   Created: 2021/05/16 17:47:43 by youjeon           #+#    #+#             */
+/*   Updated: 2021/05/16 18:16:58 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char *ptr_s1;
-	unsigned char *ptr_s2;
+	char *new_mem;
 
-	ptr_s1 = (unsigned char *)s1;
-	ptr_s2 = (unsigned char *)s2;
-	while (n > 0)
-	{
-		if (*ptr_s1 == *ptr_s2)
-		{
-			ptr_s1++;
-			ptr_s2++;
-			n--;
-		}
-		else
-		{
-			return (*ptr_s1 - *ptr_s2);
-		}
-		if (!(*ptr_s1) && !(*ptr_s2))
-			break ;
-	}
-	return (0);
+	if (s == NULL)
+		return (NULL);
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
+	if (!(new_mem = malloc(len + 1)))
+		return (NULL);
+	ft_strlcpy(new_mem, s + start, len + 1);
+	return (new_mem);
 }
