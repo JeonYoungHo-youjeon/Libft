@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:58:08 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/17 15:42:36 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/18 18:43:14 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	i = 0;
 	if (ft_strlen(s2) == 0)
 		return (ptr_s1);
+	if (n > ft_strlen(s1))
+		n = ft_strlen(s1);
 	while (i < n)
 	{
 		if (ft_strncmp(&s1[i], s2, ft_strlen(s2)) == 0)

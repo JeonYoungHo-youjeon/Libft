@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:19:17 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/17 21:45:48 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/18 12:27:21 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,9 @@ char			**ft_split(char const *s, char c)
 	size_t	word_count;
 	char	**new_mem;
 
-	if (!s || (word_count = get_word_cnt(s, c)) == 0)
+	if (!s)
 		return (NULL);
+	word_count = get_word_cnt(s, c);
 	if (!(new_mem = (char **)malloc(sizeof(char *) * (word_count + 1))))
 		return (NULL);
 	new_mem = set_worddup(s, c, new_mem);
