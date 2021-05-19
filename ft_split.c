@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:19:17 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/18 12:27:21 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/18 21:54:33 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void		*is_free(char **str)
 	return (NULL);
 }
 
-char			**set_worddup(char const *s, char c, char **mem)
+static char		**set_worddup(char const *s, char c, char **mem)
 {
 	size_t	word_length;
 	int		i;

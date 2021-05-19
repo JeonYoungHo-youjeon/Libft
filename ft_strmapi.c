@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 16:25:59 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/18 22:45:24 by youjeon          ###   ########.fr       */
+/*   Created: 2021/05/19 19:08:48 by youjeon           #+#    #+#             */
+/*   Updated: 2021/05/19 19:51:47 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	src_len;
-	size_t	i;
+	char			*new_mem;
+	unsigned int	len;
+	unsigned int	i;
 
-	src_len = 0;
+	if (s == 0 || f == 0)
+		return (NULL);
+	len = ft_strlen(s);
+	if (!(new_mem = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	new_mem[len] = 0;
 	i = 0;
-	while (src[src_len])
-		src_len++;
-	if (len == 0)
+	while (i < len)
 	{
-		return (src_len);
-	}
-	while (i < len - 1 && *src)
-	{
-		*dst = *src;
-		dst++;
-		src++;
+		new_mem[i] = f(i, s[i]);
 		i++;
 	}
-	*dst = '\0';
-	return (src_len);
+	return (new_mem);
 }

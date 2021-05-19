@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 16:25:59 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/18 22:45:24 by youjeon          ###   ########.fr       */
+/*   Created: 2021/05/19 19:42:05 by youjeon           #+#    #+#             */
+/*   Updated: 2021/05/19 19:51:05 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	src_len;
-	size_t	i;
+	char	c;
 
-	src_len = 0;
-	i = 0;
-	while (src[src_len])
-		src_len++;
-	if (len == 0)
+	if (n == -2147483648)
 	{
-		return (src_len);
+		ft_putnbr_fd(n / 10, fd);
+		write(fd, "8", 1);
+		return ;
 	}
-	while (i < len - 1 && *src)
+	else if (n < 0)
 	{
-		*dst = *src;
-		dst++;
-		src++;
-		i++;
+		write(fd, "-", 1);
+		n = n * -1;
 	}
-	*dst = '\0';
-	return (src_len);
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		c = '0' + n % 10;
+		write(fd, &c, 1);
+	}
+	else
+	{
+		c = '0' + n;
+		write(fd, &c, 1);
+	}
 }
