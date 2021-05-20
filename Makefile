@@ -53,13 +53,13 @@ FLAGS					= -Wall -Wextra -Werror
 
 $(NAME)		:	$(OBJS)
 			gcc $(FLAGS) -c $(SRCS) -I./
-			ar rc $(NAME) $(OBJS)
-
-all	:	$(NAME)
+			ar rc $(NAME)  $(OBJS)
 
 bonus	:	$(NAME)
 		gcc $(FLAGS) -c $(BNS_SRCS) -I./
 		ar rc $(NAME) $(BNS_OBJS)
+
+all	:	$(NAME) bonus
 
 clean	:
 		rm -f $(OBJS) $(BNS_OBJS)

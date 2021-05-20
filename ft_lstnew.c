@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 12:27:09 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/20 19:35:34 by youjeon          ###   ########.fr       */
+/*   Created: 2021/05/20 17:51:39 by youjeon           #+#    #+#             */
+/*   Updated: 2021/05/20 18:08:35 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+t_list	*ft_lstnew(void *content)
 {
-	if (c >= '0' && c <= '9')
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	t_list *new_mem;
+
+	if (!(new_mem = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
+	new_mem->content = content;
+	new_mem->next = NULL;
+	return (new_mem);
 }
