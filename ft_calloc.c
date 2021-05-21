@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:45:39 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/13 18:08:50 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/21 18:43:11 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 void	*ft_calloc(size_t n, size_t size)
 {
 	char	*new_mem;
+	size_t	length;
 
-	if (!(new_mem = malloc(size * n)))
+	length = size * n;
+	if (length / n != size || length % size != 0)
 		return (NULL);
-	ft_bzero(new_mem, n * size);
+	if (!(new_mem = malloc(length)))
+		return (NULL);
+	ft_bzero(new_mem, length);
 	return (new_mem);
 }
