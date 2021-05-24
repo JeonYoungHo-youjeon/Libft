@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 18:18:38 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/16 18:49:45 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/23 17:49:30 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	s1_len;
 	size_t	s2_len;
 
+	new_mem = NULL;
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
 	else if (s1 == NULL)

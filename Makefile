@@ -51,15 +51,20 @@ BNS_OBJS				= $(BNS_SRCS:%.c=%.o)
 
 FLAGS					= -Wall -Wextra -Werror
 
-$(NAME)		:	$(OBJS)
-			gcc $(FLAGS) -c $(SRCS) -I./
-			ar rc $(NAME)  $(OBJS)
 
-bonus	:	$(NAME)
-		gcc $(FLAGS) -c $(BNS_SRCS) -I./
-		ar rc $(NAME) $(BNS_OBJS)
+	OBJ_FILES = $(OBJS) $(BNS_OBJS)
 
-all	:	$(NAME) bonus
+
+all	:	$(NAME)
+
+$(NAME)		:	$(OBJ_FILES)
+			ar rcs $(NAME)  $(OBJ_FILES)
+
+%.o			: %.c
+	gcc $(FLAGS) -c $^ -I./ -o $@
+
+bonus :
+	make WITH_BONUS=1 all
 
 clean	:
 		rm -f $(OBJS) $(BNS_OBJS)
@@ -69,4 +74,4 @@ fclean	:	clean
 
 re	:	fclean all
 
-.PHONY	:	all clean fclean re
+.PHONY	:	all clean fclean re bonus

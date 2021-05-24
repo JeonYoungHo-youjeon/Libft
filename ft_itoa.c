@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 21:39:16 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/19 19:52:06 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/23 17:49:28 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char		*ft_itoa(int n)
 	char	*new_mem;
 	long	nbr;
 
+	new_mem = NULL;
 	len = get_nbrlen(n);
 	if (!(new_mem = malloc(sizeof(char) * len + 1)))
 		return (NULL);

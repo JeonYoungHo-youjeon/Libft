@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:19:17 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/18 21:54:33 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/23 17:49:41 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ static size_t	get_word_cnt(char const *str, char c)
 	return (count);
 }
 
-static void		*is_free(char **str)
+static void		*is_free(char **str, int str_index)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (i < str_index)
 	{
 		free(str[i]);
 		i++;
@@ -65,7 +65,7 @@ static char		**set_worddup(char const *s, char c, char **mem)
 		while (s[word_length] && s[word_length] != c)
 			word_length++;
 		if (!(mem[i] = (char *)malloc(sizeof(char) * (word_length + 1))))
-			return (is_free(mem));
+			return (is_free(mem, i));
 		ft_strlcpy(mem[i], s, word_length + 1);
 		s = s + word_length;
 		i++;
@@ -79,6 +79,7 @@ char			**ft_split(char const *s, char c)
 	size_t	word_count;
 	char	**new_mem;
 
+	new_mem = NULL;
 	if (!s)
 		return (NULL);
 	word_count = get_word_cnt(s, c);

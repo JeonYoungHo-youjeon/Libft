@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:47:43 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/18 18:31:19 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/23 17:49:27 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char *new_mem;
 
+	new_mem = NULL;
 	if (s == NULL)
 		return (NULL);
 	if (ft_strlen(s) < start)

@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 19:08:48 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/21 14:22:52 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/23 17:49:27 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	len;
 	unsigned int	i;
 
+	new_mem = NULL;
 	if (s == 0 || f == 0)
 		return (NULL);
 	len = ft_strlen(s);
