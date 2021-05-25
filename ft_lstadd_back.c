@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:39:21 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/20 19:30:40 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/25 10:56:48 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list *current;
 
+	if (lst == NULL || new == NULL)
+	{
+		return ;
+	}
 	current = NULL;
 	if (*lst)
 	{

@@ -6,7 +6,7 @@
 /*   By: youjeon <youjeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:58:46 by youjeon           #+#    #+#             */
-/*   Updated: 2021/05/20 19:30:49 by youjeon          ###   ########.fr       */
+/*   Updated: 2021/05/25 10:58:38 by youjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_mem;
 	t_list	*now;
 
-	if (lst == NULL)
-		return (NULL);
+	if (lst == NULL || f == NULL)
+		return (0);
 	new_mem = NULL;
 	while (lst)
 	{

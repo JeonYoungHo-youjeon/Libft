@@ -51,14 +51,16 @@ BNS_OBJS				= $(BNS_SRCS:%.c=%.o)
 
 FLAGS					= -Wall -Wextra -Werror
 
-
+ifdef WITH_BONUS
 	OBJ_FILES = $(OBJS) $(BNS_OBJS)
-
+else
+	OBJ_FILES = $(OBJS)
+endif
 
 all	:	$(NAME)
 
 $(NAME)		:	$(OBJ_FILES)
-			ar rcs $(NAME)  $(OBJ_FILES)
+			ar rcs $(NAME) $(OBJ_FILES)
 
 %.o			: %.c
 	gcc $(FLAGS) -c $^ -I./ -o $@
