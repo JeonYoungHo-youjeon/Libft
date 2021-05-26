@@ -1,8 +1,6 @@
-# libft / 42Seoul youjeon
+# [libft / 42Seoul youjeon's notion](https://www.notion.so/libft-0b77b7e6b3df4874a73d766bdadf1041)
 - 참조할만한 자료들과 내용 출처.
-    
-    https://www.notion.so/libft-0b77b7e6b3df4874a73d766bdadf1041
-    
+
     과제 관련
 
      - [https://idollee.tistory.com/68](https://idollee.tistory.com/68)
